@@ -3,7 +3,7 @@
 
 void change_input(char *address){
     char address2[1000];
-    char path[1000] = "C:\\Users\\ASUS\\Desktop";
+    char path[1000] = "C:\\Users\\ASUS\Desktop";
     if(address[0]=='"'){
         int i=1;
         int j = 0;
