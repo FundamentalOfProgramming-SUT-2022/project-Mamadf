@@ -139,6 +139,11 @@ void change_string(char *str){
                 j++;
                 i += 2;
             }
+            else if(str[i] == '\\' && str[i+1] =='*' ){
+                str2[j] = str[i+1];
+                j++;
+                i += 2;
+            }
             else if(str[i] == '\\' && str[i+1] =='"' ){
                 strcat(str2, "\"");
                 j++;
@@ -499,7 +504,7 @@ int main() {
                 if(strcmp(bf,"-f")==0){
                     int i;
                     for(i = 0; i< q;i++){
-                        tmp2[i] = tmp[w+i-1];
+                        tmp2[i] = tmp[w+i];
                     }
                     tmp[i] = '\0';
                 }
@@ -637,6 +642,7 @@ int main() {
                 int x = 0;
                 int l = 1;
                 char *tmp3;
+                tmp3 = malloc(10000*sizeof(char));
                 if(line != 1){
                     for(x;l <= line && tmp[x] != '\0';x++){
                         if(l == line){
@@ -816,7 +822,8 @@ int main() {
                                 break;
                             }
                             int s = res - tmp;
-                            if(s <= 0){
+                         //   printf("%d", s);
+                            if(s < 0){
                                 break;
                             }
                             len += res -tmp+f;
